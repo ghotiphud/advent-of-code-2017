@@ -10,7 +10,11 @@
 // }
 
 // /// Q1
-// fn part1() {}
+// fn part1(s: &str) -> i32 {
+//     unimplemented!()
+// }
 
 // /// Q2
-// fn part2() {}
+// fn part2(s: &str) -> i32 {
+//     unimplemented!()
+// }
