@@ -2,12 +2,18 @@
 name = "advent-of-code-2017"
 version = "0.1.0"
 dependencies = [
+ "gen-iter 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "itertools 0.7.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "either"
 version = "1.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "gen-iter"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -20,4 +26,5 @@ dependencies = [
 
 [metadata]
 "checksum either 1.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "740178ddf48b1a9e878e6d6509a1442a2d42fd2928aae8e7a6f8a36fb01981b3"
+"checksum gen-iter 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "321d0810168dd4ee1849612929474ca355246fe234bd61d4a594385c54d73ffb"
 "checksum itertools 0.7.3 (registry+https://github.com/rust-lang/crates.io-index)" = "99f3f75d7cf195a7eedb0611efe8684b55c6c7264afe3d8bc00b704f061c0fdf"
