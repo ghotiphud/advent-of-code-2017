@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 extern crate itertools;
 use itertools::{Itertools, MinMaxResult};
 
@@ -31,14 +29,19 @@ fn main() {
 fn checksum(s: &str) -> u32 {
     s.lines()
         .map(parse_line)
-        .filter_map(line_value)
+        .map(line_checksum)
         .sum()
 }
 
-fn line_value(l: Vec<u32>) -> Option<u32> {
-    let value = l.iter().max()? - l.iter().min()?;
+fn line_checksum(l: Vec<u32>) -> u32 {
+    l.iter().max().unwrap() - l.iter().min().unwrap()
+}
 
-    Some(value)
+fn line_checksum2(l: Vec<u32>) -> u32 {
+    match l.iter().minmax() {
+        MinMaxResult::MinMax(x,y) => y-x,
+        _ => panic!()
+    }
 }
 
 /// It sounds like the goal is to find the only two numbers in each row where one
@@ -78,13 +81,8 @@ fn line_divisible(line: Vec<u32>) -> u32 {
 }
 
 // Helpers
-fn parse_line(line: &str) -> Vec<u32> {
-    line.split_whitespace()
-        .filter_map(|v|
-            // .ok() - Err => Option::None
-            v.parse().ok()
-        )
-        .collect()
+fn parse_line(l: &str) -> Vec<u32> {
+    l.split_whitespace().map(|v| v.parse().unwrap()).collect()
 }
 
 #[cfg(test)]
@@ -107,33 +105,5 @@ mod tests {
 3 8 6 5";
 
         assert_eq!(divisible_sum(input), 9);
-    }
-}
-
-
-// Alternate impls 
-fn line_value2(l: Vec<u32>) -> Option<u32> {
-    let min = l.iter().min();
-    let max = l.iter().max();
-    
-    match (min, max) {
-        (Some(x), Some(y)) => { Some(y-x) },
-        _ => None
-    }
-}
-
-fn line_value3(l: Vec<u32>) -> Option<u32> {
-    let min = l.iter().min();
-    let max = l.iter().max();
-    
-    min.and_then(|x| 
-        max.map(|y| y-x)
-    )
-}
-
-fn line_value4(l: Vec<u32>) -> Option<u32> {
-    match l.iter().minmax() {
-        MinMaxResult::MinMax(x,y) => Some(y-x),
-        _ => None
     }
 }
