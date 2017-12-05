@@ -1,10 +1,9 @@
 
 fn main() {
-    let input = include_str!("input/day01_1.txt");
+    let input = include_str!("input/day01.txt");
     println!("{}", captcha(input));
 
-    let input2 = include_str!("input/day01_2.txt");
-    println!("{}", captcha2(input2));
+    println!("{}", captcha2(input));
 }
 
 

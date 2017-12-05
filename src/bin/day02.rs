@@ -2,11 +2,10 @@ extern crate itertools;
 use itertools::{Itertools, MinMaxResult};
 
 fn main() {
-    let input = include_str!("input/day02_1.txt");
+    let input = include_str!("input/day02.txt");
     println!("{}", checksum(input));
 
-    let input2 = include_str!("input/day02_2.txt");
-    println!("{}", divisible_sum(input2));
+    println!("{}", divisible_sum(input));
 }
 
 /// The spreadsheet consists of rows of apparently-random numbers.
