@@ -1,5 +1,5 @@
 # set the day to run
-DAY=day04
+DAY=day05
 
 # Environment varables
 ENV_VARS=CARGO_INCREMENTAL=1

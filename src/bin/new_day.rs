@@ -8,11 +8,10 @@
 // use itertools::Itertools;
 
 // fn main() {
-//     let input = include_str!("input/dayXX_1.txt");
+//     let input = include_str!("input/dayXX.txt");
 //     println!("{}", part1(input));
 
-//     let input2 = include_str!("input/dayXX_2.txt");
-//     println!("{}", part2(input2));
+//     println!("{}", part2(input));
 // }
 
 // /// Q1
