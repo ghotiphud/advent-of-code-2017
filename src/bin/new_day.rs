@@ -1,6 +1,8 @@
 // #![feature(generators)]
 // #![feature(conservative_impl_trait)]
 
+// use std::collections::{ HashMap, HashSet };
+
 // extern crate gen_iter;
 // use gen_iter::GenIter;
 
