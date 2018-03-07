@@ -73,7 +73,7 @@ fn part1(s: &str) -> i32 {
         }
 
         if garbage && c != '>' {
-            garbageCount += 1;
+            garbage_count += 1;
             continue;
         }
 
@@ -89,7 +89,7 @@ fn part1(s: &str) -> i32 {
         }
     }
 
-    println!("{}", garbageCount);
+    println!("{}", garbage_count);
     score
 }
 
