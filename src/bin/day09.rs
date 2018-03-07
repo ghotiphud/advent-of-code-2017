@@ -63,7 +63,7 @@ fn part1(s: &str) -> i32 {
     let mut score = 0;
     let mut depth = 0;
     let mut garbage = false;
-    let mut garbageCount = 0;
+    let mut garbage_count = 0;
     let mut ignore_next = false;
 
     for c in s.chars() {

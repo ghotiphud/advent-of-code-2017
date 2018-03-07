@@ -1,4 +1,4 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap};
 
 #[macro_use]
 extern crate nom;
@@ -104,8 +104,8 @@ impl<'t> TowerNode<'t> {
         // println!("{:?}", weight_freq);
         for (w1, times) in weight_freq {
             if times == 1 {
-                let this = *weights.iter().filter(|&&(s, bw)| bw == w1).next().unwrap();
-                let other = *weights.iter().filter(|&&(s, bw)| bw != w1).next().unwrap();
+                let this = *weights.iter().filter(|&&(_s, bw)| bw == w1).next().unwrap();
+                let other = *weights.iter().filter(|&&(_s, bw)| bw != w1).next().unwrap();
                 return Some((this.0, this.1 - other.1));
             }
         }
@@ -178,8 +178,6 @@ fn part2(s: &str) -> i32 {
 
     tower.balance().1
 }
-
-
 
 // Parser
 #[derive(Debug, PartialEq)]

@@ -1,5 +1,5 @@
 use std::str;
-use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap};
 
 #[macro_use]
 extern crate nom;

@@ -29,10 +29,7 @@ fn main() {
 /// * The third row's difference is 6.
 /// In this example, the spreadsheet's checksum would be 8 + 4 + 6 = 18.
 fn checksum(s: &str) -> u32 {
-    s.lines()
-        .map(parse_line)
-        .filter_map(line_value)
-        .sum()
+    s.lines().map(parse_line).filter_map(line_value).sum()
 }
 
 fn line_value(l: Vec<u32>) -> Option<u32> {
@@ -59,10 +56,7 @@ fn line_value(l: Vec<u32>) -> Option<u32> {
 /// * In the third row, the result is 2.
 /// In this example, the sum of the results would be 4 + 3 + 2 = 9.
 fn divisible_sum(s: &str) -> u32 {
-    s.lines()
-        .map(parse_line)
-        .map(line_divisible)
-        .sum()
+    s.lines().map(parse_line).map(line_divisible).sum()
 }
 
 fn line_divisible(line: Vec<u32>) -> u32 {
@@ -82,8 +76,7 @@ fn parse_line(line: &str) -> Vec<u32> {
     line.split_whitespace()
         .filter_map(|v|
             // .ok() - Err => Option::None
-            v.parse().ok()
-        )
+            v.parse().ok())
         .collect()
 }
 
@@ -110,30 +103,27 @@ mod tests {
     }
 }
 
-
-// Alternate impls 
+// Alternate impls
 fn line_value2(l: Vec<u32>) -> Option<u32> {
     let min = l.iter().min();
     let max = l.iter().max();
-    
+
     match (min, max) {
-        (Some(x), Some(y)) => { Some(y-x) },
-        _ => None
+        (Some(x), Some(y)) => Some(y - x),
+        _ => None,
     }
 }
 
 fn line_value3(l: Vec<u32>) -> Option<u32> {
     let min = l.iter().min();
     let max = l.iter().max();
-    
-    min.and_then(|x| 
-        max.map(|y| y-x)
-    )
+
+    min.and_then(|x| max.map(|y| y - x))
 }
 
 fn line_value4(l: Vec<u32>) -> Option<u32> {
     match l.iter().minmax() {
-        MinMaxResult::MinMax(x,y) => Some(y-x),
-        _ => None
+        MinMaxResult::MinMax(x, y) => Some(y - x),
+        _ => None,
     }
 }

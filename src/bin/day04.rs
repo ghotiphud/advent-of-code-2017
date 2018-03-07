@@ -1,16 +1,13 @@
 #![feature(generators)]
 #![feature(conservative_impl_trait)]
 
-extern crate gen_iter;
-use gen_iter::GenIter;
-
 extern crate itertools;
 use itertools::Itertools;
 
 use std::collections::HashSet;
 
 fn main() {
-    let input = include_str!("input/day04_1.txt");
+    let input = include_str!("input/day04.txt");
     println!("{}", part1(input));
 
     println!("{}", part2(input));
